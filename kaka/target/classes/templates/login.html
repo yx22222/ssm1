@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>用户登陆</title>
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
+	</head>
+	<body class="text-center"  background="asserts/img/timg2.jpg" style="background-attachment:fixed">
+		<form class="form-signin" action="dashboard.html" th:action="@{/user/login}" method="post"  >
+			<!--<img class="mb-4" th:src="@{/asserts/img/timg.jpg}" src="asserts/img/timg.jpg" alt="" width="72" height="72">-->
+			<h1 class="h3 mb-3 font-weight-normal" th:align="center">欢迎登录</h1>
+			<!--判断-->
+			<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+			<div><label class="sr-only" >账号： </label>
+			<input type="text"  name="username" class="form-control" placeholder="Username"  required="" autofocus="">
+			</div>
+			<div><label class="sr-only" >密码： </label>
+			<input type="password" name="password" class="form-control" placeholder="Password"  required="">
+			</div>
+			<div class="checkbox mb-3" th:align="center">
+				<label th:align="center">
+          			<input type="checkbox" value="remember-me"/> 记住密码
+        		</label>
+			</div>
+			<div th:align="center" ><button class="btn btn-lg btn-primary btn-block" type="submit" th:align="center">登录</button>
+			</div><p class="mt-5 mb-3 text-muted" th:align="center" >© 2020-2021</p>
+		</form>
+	</body>
+
+</html>

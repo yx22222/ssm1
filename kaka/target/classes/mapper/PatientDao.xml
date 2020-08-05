@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boom.kaka.dao.PatientDao" >
+	<!-- 查询所有病人 -->
+	<select id="findAllPatient" resultType="Patient">
+		select * from patient
+	</select>
+	
+	<!-- 按照ID查询病人 -->
+	<select id="findPatientById" parameterType="Integer" resultType="Patient">
+		select * from patient where pid = #{value}
+	</select>
+	
+	<!-- 验证登录 -->
+	<select id="findByLoginMsg" parameterType="QueryVo" resultType="Patient">
+		select * from patient where pusername = #{pusername} and ppsd = #{ppsd}
+	</select>
+</mapper>

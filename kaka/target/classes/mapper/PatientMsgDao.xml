@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boom.kaka.dao.PatientMsgDao" >
+	<!-- 输出映射 -->
+	<resultMap type="Patient_msg" id="resultMap">
+		<result column="pid" property="patient.pid"/>
+		<result column="pname" property="patient.pname"/>
+		<result column="blood_pressure" property="blood_pressure"/>
+		<result column="heart_rate" property="heart_rate"/>
+		<result column="weight" property="weight"/>
+		<result column="temperature" property="temperature"/>
+		<result column="room_temperature" property="room_temperature"/>
+		<result column="humidity" property="humidity"/>
+		<result column="SaO2" property="SaO2"/>
+		<result column="date" property="date"/>
+	</resultMap>
+
+	<!-- 查询所有病人的历史状态 -->
+	<select id="findAllMsg" resultMap="resultMap">
+		select * from patient_msg
+	</select>
+	
+	<!-- 按照ID查询特定病人的历史状态 -->
+	<select id="findMsgById" parameterType="Integer" resultMap="resultMap">
+		select * from patient_msg where pid = #{value}
+	</select>
+	
+	<!-- 查询所有病人的最新状态 -->
+	<select id="findCurrentState" resultMap="resultMap">
+		select * from patient_msg where times = 0
+	</select>
+
+</mapper>
